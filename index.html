@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>cute envelope</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'arial', sans-serif;
+}
+
+body{
+    background: linear-gradient(180deg,#cfe8ff,#a9d6ff,#dff2ff);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.container{
+    position:relative;
+    text-align:center;
+}
+
+.envelope{
+    position:relative;
+    width:220px;
+    height:150px;
+    background:#8fc8ff;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.5s;
+}
+
+.envelope::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:0;
+    border-left:110px solid transparent;
+    border-right:110px solid transparent;
+    border-top:80px solid #6eb7ff;
+    transform-origin:top;
+    transition:0.6s;
+}
+
+.letter{
+    position:absolute;
+    width:180px;
+    height:110px;
+    background:white;
+    left:20px;
+    top:20px;
+    border-radius:8px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:18px;
+    color:#5b8ecb;
+    transition:0.6s;
+}
+
+.open .envelope::before{
+    transform:rotateX(180deg);
+}
+
+.open .letter{
+    transform:translateY(-90px);
+}
+
+.love{
+    position:absolute;
+    color:#ff5fa2;
+    font-size:25px;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-100vh);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+}
+
+.text{
+    margin-top:25px;
+    color:white;
+    font-size:18px;
+}
+</style>
+</head>
+<body>
+
+<div class="container" onclick="openLetter()">
+    <div class="envelope">
+        <div class="letter">for u 💌</div>
+    </div>
+    <div class="text">tap the envelope</div>
+</div>
+
+<script>
+function openLetter(){
+    document.querySelector('.container').classList.add('open');
+
+    for(let i=0; i<30; i++){
+        let heart = document.createElement('div');
+        heart.classList.add('love');
+        heart.innerHTML = '❤';
+
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.animationDuration = (Math.random()*3+2) + 's';
+        heart.style.fontSize = (Math.random()*20+15) + 'px';
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },5000);
+    }
+
+    // pindah ke html 2 setelah 5 detik
+    setTimeout(() => {
+        window.location.href = "index2.html";
+    }, 5000);
+}
+</script>
+
+</body>
+</html>

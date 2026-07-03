@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>note</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Parisienne&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+
+<style>
+
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+
+body{
+
+height:100vh;
+
+background:linear-gradient(
+180deg,
+#dff1ff,
+#c8e7ff,
+#eef8ff
+);
+
+font-family:Poppins;
+
+overflow:hidden;
+
+}
+
+
+
+
+
+.note{
+
+width:90%;
+
+height:78vh;
+
+margin:25px auto 80px;
+
+background:#f2f9ff;
+
+repeating-linear-gradient(
+#fffdfd,
+#fffdfd 35px,
+#f4dce8 36px
+);
+
+border-radius:25px;
+
+padding:25px;
+
+box-shadow:0 15px 40px rgba(120,180,255,.25);
+
+overflow:auto;
+
+animation:open .8s;
+
+}
+
+
+
+@keyframes open{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+
+
+
+.title{
+
+font-family:Parisienne;
+
+font-size:50px;
+
+text-align:center;
+
+color:#6d9fd8;
+
+}
+
+
+
+
+
+/* music */
+
+
+.music-card{
+
+background:#edf7ff;
+
+padding:15px;
+
+border-radius:25px;
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+margin:20px auto;
+
+width:95%;
+
+box-shadow:0 10px 20px rgba(120,180,255,.25);
+
+}
+
+
+
+.music-icon{
+
+width:50px;
+
+height:50px;
+
+background:#8ec5ff;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+color:white;
+
+}
+
+
+
+.music-icon.play{
+
+animation:music 1s infinite;
+
+}
+
+
+
+@keyframes music{
+
+
+50%{
+
+transform:scale(1.2) rotate(10deg);
+
+}
+
+}
+
+
+
+
+audio{
+
+width:200px;
+
+}
+
+
+
+
+
+/* text */
+
+
+.text{
+
+color:#6d9fd8;
+
+font-size:14px;
+
+line-height:2;
+
+padding:10px;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+
+<div class="note">
+
+
+
+<h1 class="title">
+
+read this.
+
+</h1>
+
+
+
+<div class="music-card">
+
+
+<div class="music-icon" id="musicIcon">
+
+<i data-lucide="music"></i>
+
+</div>
+
+
+<audio id="song" controls>
+
+<source src="song1.m4a">
+
+</audio>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="text">
+
+for kanala
+
+
+<br><br>
+hi nala, i want to say something, i honestly like you. wkwk mungkin kedengeran nya tiba tiba tapi buat gua engga, gua udah suka sama lu dari lama cuma baru berani sekarang wkwk. ada banyak hal yang jadi alasan buat gua suka sama lu, mungkin karena sikap lu, sifat lu, tapi gua pandang dengan cara berbeda, gua mandang semua yang ada di diri lu itu menarik.
+
+
+<br><br>
+i look at you not just because of that, because you are beautiful, cute, funny, i like everything about you. wkwk gua udah di ledek engga gentleman sekarang gua berani turunin gengsi buat lu. 
+
+
+<br><br>
+jadi... will you be my girlfriend, nal? kalo masih ragu, lu gaperlu jawab sekarang, yakinin diri lu dulu buat jawab satu pertanyaan gua, gua terima jawaban apapun dari lu.
+
+
+<br><br>
+thank you for taking time to read this, i hope you understand what i'm typing. i love you, pretty.
+
+— jemian.
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="menu">
+
+
+
+</div>
+
+
+
+
+<script>
+
+
+lucide.createIcons();
+
+
+
+let song=document.getElementById("song");
+
+let icon=document.getElementById("musicIcon");
+
+
+
+song.onplay=function(){
+
+icon.classList.add("play");
+
+}
+
+
+
+song.onpause=function(){
+
+icon.classList.remove("play");
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
